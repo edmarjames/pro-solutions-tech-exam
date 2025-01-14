@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.utils.timezone import localdate
 from .models import Task
 
 class TaskSerializer(serializers.ModelSerializer):
@@ -16,4 +17,10 @@ class TaskSerializer(serializers.ModelSerializer):
         ]
 
     def get_completed(self, obj):
-        return obj.completed
+        today = localdate()
+        if obj.due_date > today:
+            return "Incoming"
+        elif obj.due_date == today:
+            return "Today"
+        else:
+            return "Overdue"

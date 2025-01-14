@@ -1,6 +1,7 @@
-from rest_framework.viewsets import ModelViewSet
-from rest_framework.exceptions import ValidationError
 from django.utils.timezone import localdate
+from rest_framework.exceptions import ValidationError
+from rest_framework.viewsets import ModelViewSet
+
 from .models import Task
 from .serializers import TaskSerializer
 

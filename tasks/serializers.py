@@ -1,6 +1,8 @@
-from rest_framework import serializers
 from django.utils.timezone import localdate
+from rest_framework import serializers
+
 from .models import Task
+
 
 class TaskSerializer(serializers.ModelSerializer):
     completed = serializers.SerializerMethodField()
